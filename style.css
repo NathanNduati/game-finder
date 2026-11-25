@@ -328,8 +328,8 @@ main.wrapper {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #eab308;
-  box-shadow: 0 0 8px #eab308;
+  background-color: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
 }
 
 .status-dot.web-01 {

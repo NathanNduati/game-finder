@@ -154,28 +154,3 @@ detailsModal.addEventListener("click", (e) => {
 });
 
 fetchGames();
-async function detectServingBackend() {
-  const serverNameEl = document.getElementById('server-name');
-  const statusDotEl = document.getElementById('status-dot');
-  if (!serverNameEl || !statusDotEl) return;
-
-  try {
-    const res = await fetch(`${window.location.pathname}?t=${Date.now()}`, {
-      method: 'HEAD',
-      cache: 'no-store'
-    });
-    const servedBy = res.headers.get('X-Served-By') || '7112-web-01';
-    serverNameEl.textContent = `Served by: ${servedBy}`;
-
-    statusDotEl.classList.remove('web-01', 'web-02');
-    if (servedBy.includes('web-02')) {
-      statusDotEl.classList.add('web-02');
-    } else {
-      statusDotEl.classList.add('web-01');
-    }
-  } catch (err) {
-    serverNameEl.textContent = 'Served by: 7112-lb-01 cluster';
-  }
-}
-
-detectServingBackend();
