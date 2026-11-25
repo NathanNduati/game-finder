@@ -1,4 +1,4 @@
-﻿# GameFinder â€” Free-to-Play PC & Browser Games Discovery App
+﻿# GameFinder — Free-to-Play PC & Browser Games Discovery App
 
 GameFinder is a responsive web application built with vanilla HTML, CSS, and JavaScript that solves the challenge of discovering genuinely free-to-play PC and browser games without paywalls or cluttered storefronts. Powered by the **Free-to-Play Games Database API** (via RapidAPI), it allows users to search, filter by platform and genre, sort titles dynamically, and inspect detailed publisher, developer, and release metadata.
 
@@ -8,9 +8,9 @@ The application is deployed behind an **HAProxy round-robin load balancer (`7112
 
 ## Live Links & Demo Video
 
-* **Demo Video (â‰¤ 2 mins):** [Watch Video Walkthrough](https://youtu.be/8tK-3PQWgI0?si=ctkqIyLi9113bEax)
-* **Deployed Application (Load Balancer):** [http://3.83.42.137](http://3.83.42.137) (`7112-lb-01`)
-* **GitHub Repository:** [https://github.com/NathanNduati/game-finder](https://github.com/NathanNduati/game-finder)
+- **Demo Video (≤ 2 mins):** [Watch Video Walkthrough](https://youtu.be/8tK-3PQWgI0)
+- **Deployed Application (Load Balancer):** [http://3.83.42.137](http://3.83.42.137) (`7112-lb-01`)
+- **GitHub Repository:** [https://github.com/NathanNduati/game-finder](https://github.com/NathanNduati/game-finder)
 
 ---
 
@@ -18,13 +18,13 @@ The application is deployed behind an **HAProxy round-robin load balancer (`7112
 
 ```text
 Client Browser
-      â”‚
-      â–¼
-HAProxy Load Balancer (7112-lb-01 â€” 3.83.42.137)
-  â”œâ”€â”€â–º Round-Robin â”€â”€â–º Nginx Web Server 1 (7112-web-01 â€” 44.203.111.212)
-  â””â”€â”€â–º Round-Robin â”€â”€â–º Nginx Web Server 2 (7112-web-02 â€” 44.204.52.194)
-                              â”‚
-                              â–¼
+      │
+      ▼
+HAProxy Load Balancer (7112-lb-01 — 3.83.42.137)
+  ├──► Round-Robin ──► Nginx Web Server 1 (7112-web-01 — 44.203.111.212)
+  └──► Round-Robin ──► Nginx Web Server 2 (7112-web-02 — 44.204.52.194)
+                              │
+                              ▼
              RapidAPI: Free-to-Play Games Database
        ([https://free-to-play-games-database.p.rapidapi.com/api/games](https://free-to-play-games-database.p.rapidapi.com/api/games))
 ```
@@ -33,16 +33,16 @@ HAProxy Load Balancer (7112-lb-01 â€” 3.83.42.137)
 
 ## Core Features
 
-* **Real-Time External API Integration:** Queries the Free-to-Play Games Database API (`GET /api/games`) with dynamic query parameters (`platform`, `category`, `sort-by`).
-* **Interactive Search, Filtering & Sorting:**
-  * Instant client-side title search (`applySearchFilter`).
-  * Filter by **Platform** (`All Platforms`, `PC (Windows)`, `Web Browser`).
-  * Filter by **Genre** (`Shooter`, `MMORPG`, `Strategy`, `MOBA`, `Action`, `Racing`, `Sports`, `Fighting`, `Card Games`).
-  * Sort by **Relevance**, **Release Date**, **Popularity**, or **Alphabetical**.
-* **Game Details Modal:** Displays full description, genre/platform tags, publisher, developer, release date, and a direct **Play Free** external link.
-* **Graceful Error Handling:** Catches missing configuration (`config.js`), HTTP error statuses, and network/API downtime, presenting clear user-friendly feedback in the UI alert banner.
-* **API Key Security:** Keeps `config.js` excluded via `.gitignore` while providing `config.example.js` as a safe setup template.
-* **Live Backend Server Badge:** Displays which backend server (`7112-web-01` or `7112-web-02`) handled the request in the footer to visibly demonstrate HAProxy round-robin distribution.
+- **Real-Time External API Integration:** Queries the Free-to-Play Games Database API (`GET /api/games`) with dynamic query parameters (`platform`, `category`, `sort-by`).
+- **Interactive Search, Filtering & Sorting:**
+  - Instant client-side title search (`applySearchFilter`).
+  - Filter by **Platform** (`All Platforms`, `PC (Windows)`, `Web Browser`).
+  - Filter by **Genre** (`Shooter`, `MMORPG`, `Strategy`, `MOBA`, `Action`, `Racing`, `Sports`, `Fighting`, `Card Games`).
+  - Sort by **Relevance**, **Release Date**, **Popularity**, or **Alphabetical**.
+- **Game Details Modal:** Displays full description, genre/platform tags, publisher, developer, release date, and a direct **Play Free** external link.
+- **Graceful Error Handling:** Catches missing configuration (`config.js`), HTTP error statuses, and network/API downtime, presenting clear user-friendly feedback in the UI alert banner.
+- **API Key Security:** Keeps `config.js` excluded via `.gitignore` while providing `config.example.js` as a safe setup template.
+- **Live Backend Server Badge:** Displays which backend server (`7112-web-01` or `7112-web-02`) handled the request in the footer to visibly demonstrate HAProxy round-robin distribution.
 
 ---
 
@@ -50,12 +50,12 @@ HAProxy Load Balancer (7112-lb-01 â€” 3.83.42.137)
 
 ```text
 game-finder/
-â”œâ”€â”€ index.html        # Application structure, filter controls, modal, and server footer
-â”œâ”€â”€ style.css         # Responsive CSS Grid layout, dark-mode theme, and modal styling
-â”œâ”€â”€ app.js            # RapidAPI integration, search/filter/sort logic, and error handling
-â”œâ”€â”€ config.example.js # Template for RapidAPI credentials
-â”œâ”€â”€ .gitignore        # Prevents config.js and local environment files from being committed
-â””â”€â”€ README.md         # Documentation, deployment guide, load balancer config, and credits
+├── index.html        # Application structure, filter controls, modal, and server footer
+├── style.css         # Responsive CSS Grid layout, dark-mode theme, and modal styling
+├── app.js            # RapidAPI integration, search/filter/sort logic, and error handling
+├── config.example.js # Template for RapidAPI credentials
+├── .gitignore        # Prevents config.js and local environment files from being committed
+└── README.md         # Documentation, deployment guide, load balancer config, and credits
 ```
 
 ---
@@ -154,18 +154,18 @@ In the browser (`http://3.83.42.137`), refreshing the page visibly updates the f
 ## Challenges Encountered & How They Were Solved
 
 1. **Securing API Keys Without Breaking Deployment:**
-   * **Challenge:** Committing `config.js` directly to GitHub would expose the RapidAPI key publicly, while omitting it completely breaks live API requests on the servers.
-   * **Solution:** Added `config.js` to `.gitignore`, created a sanitized `config.example.js` template for repository users, and deployed `config.js` directly to `/var/www/html/` on `7112-web-01` and `7112-web-02` via `scp`.
+   - **Challenge:** Committing `config.js` directly to GitHub would expose the RapidAPI key publicly, while omitting it completely breaks live API requests on the servers.
+   - **Solution:** Added `config.js` to `.gitignore`, created a sanitized `config.example.js` template for repository users, and deployed `config.js` directly to `/var/www/html/` on `7112-web-01` and `7112-web-02` via `scp`.
 2. **Browser Caching Masking Round-Robin Switching:**
-   * **Challenge:** Although `curl` confirmed HAProxy was alternating between `7112-web-01` and `7112-web-02`, browser refreshes initially served cached HTML from a single backend.
-   * **Solution:** Added a distinct server badge (`7112-web-01` / `7112-web-02`) to each server's deployed `index.html` and verified uncached round-robin switching in the browser.
+   - **Challenge:** Although `curl` confirmed HAProxy was alternating between `7112-web-01` and `7112-web-02`, browser refreshes initially served cached HTML from a single backend.
+   - **Solution:** Added a distinct server badge (`7112-web-01` / `7112-web-02`) to each server's deployed `index.html`, added `Cache-Control: no-store` headers on Nginx, and verified uncached round-robin switching in the browser.
 3. **Client-Side Search vs. Server-Side API Filtering:**
-   * **Challenge:** Triggering a new RapidAPI request on every keystroke in the search box risked hitting rate limits and caused UI lag.
-   * **Solution:** Used server-side query parameters (`platform`, `category`, `sort-by`) when dropdown filters change, while filtering the fetched `allGames` array in memory (`applySearchFilter`) for instant, zero-latency title search.
+   - **Challenge:** Triggering a new RapidAPI request on every keystroke in the search box risked hitting rate limits and caused UI lag.
+   - **Solution:** Used server-side query parameters (`platform`, `category`, `sort-by`) when dropdown filters change, while filtering the fetched `allGames` array in memory (`applySearchFilter`) for instant, zero-latency title search.
 
 ---
 
 ## API Attribution & Credits
 
-* **External API:** [Free-to-Play Games Database API](https://rapidapi.com/digiwalls/api/free-to-play-games-database) hosted on RapidAPI (`free-to-play-games-database.p.rapidapi.com`) â€” special thanks to the FreeToGame / Digiwalls developers for maintaining the open free-to-play catalog.
-* **Developer:** Nathan Nduati
+- **External API:** [Free-to-Play Games Database API](https://rapidapi.com/digiwalls/api/free-to-play-games-database) hosted on RapidAPI (`free-to-play-games-database.p.rapidapi.com`) — special thanks to the FreeToGame / Digiwalls developers for maintaining the open free-to-play catalog.
+- **Developer:** Nathan Nduati
