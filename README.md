@@ -1,4 +1,4 @@
-# GameFinder — Free-to-Play PC & Browser Games Discovery App
+﻿# GameFinder â€” Free-to-Play PC & Browser Games Discovery App
 
 GameFinder is a responsive web application built with vanilla HTML, CSS, and JavaScript that solves the challenge of discovering genuinely free-to-play PC and browser games without paywalls or cluttered storefronts. Powered by the **Free-to-Play Games Database API** (via RapidAPI), it allows users to search, filter by platform and genre, sort titles dynamically, and inspect detailed publisher, developer, and release metadata.
 
@@ -8,7 +8,7 @@ The application is deployed behind an **HAProxy round-robin load balancer (`7112
 
 ## Live Links & Demo Video
 
-* **Demo Video (≤ 2 mins):** [Watch Video Walkthrough](YOUR_VIDEO_LINK_HERE)
+* **Demo Video (â‰¤ 2 mins):** [Watch Video Walkthrough](https://youtu.be/8tK-3PQWgI0?si=ctkqIyLi9113bEax)
 * **Deployed Application (Load Balancer):** [http://3.83.42.137](http://3.83.42.137) (`7112-lb-01`)
 * **GitHub Repository:** [https://github.com/NathanNduati/game-finder](https://github.com/NathanNduati/game-finder)
 
@@ -18,13 +18,13 @@ The application is deployed behind an **HAProxy round-robin load balancer (`7112
 
 ```text
 Client Browser
-      │
-      ▼
-HAProxy Load Balancer (7112-lb-01 — 3.83.42.137)
-  ├──► Round-Robin ──► Nginx Web Server 1 (7112-web-01 — 44.203.111.212)
-  └──► Round-Robin ──► Nginx Web Server 2 (7112-web-02 — 44.204.52.194)
-                              │
-                              ▼
+      â”‚
+      â–¼
+HAProxy Load Balancer (7112-lb-01 â€” 3.83.42.137)
+  â”œâ”€â”€â–º Round-Robin â”€â”€â–º Nginx Web Server 1 (7112-web-01 â€” 44.203.111.212)
+  â””â”€â”€â–º Round-Robin â”€â”€â–º Nginx Web Server 2 (7112-web-02 â€” 44.204.52.194)
+                              â”‚
+                              â–¼
              RapidAPI: Free-to-Play Games Database
        ([https://free-to-play-games-database.p.rapidapi.com/api/games](https://free-to-play-games-database.p.rapidapi.com/api/games))
 ```
@@ -50,12 +50,12 @@ HAProxy Load Balancer (7112-lb-01 — 3.83.42.137)
 
 ```text
 game-finder/
-├── index.html        # Application structure, filter controls, modal, and server footer
-├── style.css         # Responsive CSS Grid layout, dark-mode theme, and modal styling
-├── app.js            # RapidAPI integration, search/filter/sort logic, and error handling
-├── config.example.js # Template for RapidAPI credentials
-├── .gitignore        # Prevents config.js and local environment files from being committed
-└── README.md         # Documentation, deployment guide, load balancer config, and credits
+â”œâ”€â”€ index.html        # Application structure, filter controls, modal, and server footer
+â”œâ”€â”€ style.css         # Responsive CSS Grid layout, dark-mode theme, and modal styling
+â”œâ”€â”€ app.js            # RapidAPI integration, search/filter/sort logic, and error handling
+â”œâ”€â”€ config.example.js # Template for RapidAPI credentials
+â”œâ”€â”€ .gitignore        # Prevents config.js and local environment files from being committed
+â””â”€â”€ README.md         # Documentation, deployment guide, load balancer config, and credits
 ```
 
 ---
@@ -167,5 +167,5 @@ In the browser (`http://3.83.42.137`), refreshing the page visibly updates the f
 
 ## API Attribution & Credits
 
-* **External API:** [Free-to-Play Games Database API](https://rapidapi.com/digiwalls/api/free-to-play-games-database) hosted on RapidAPI (`free-to-play-games-database.p.rapidapi.com`) — special thanks to the FreeToGame / Digiwalls developers for maintaining the open free-to-play catalog.
+* **External API:** [Free-to-Play Games Database API](https://rapidapi.com/digiwalls/api/free-to-play-games-database) hosted on RapidAPI (`free-to-play-games-database.p.rapidapi.com`) â€” special thanks to the FreeToGame / Digiwalls developers for maintaining the open free-to-play catalog.
 * **Developer:** Nathan Nduati
